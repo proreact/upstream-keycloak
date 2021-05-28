@@ -35,7 +35,7 @@ jobs:
 
       - name: Build Keycloak
         run: |
-           mvn clean install -e -DskipTests -Pdistribution -pl distribution/server-dist -am
+           mvn clean install -e -DskipTests -Pquarkus,distribution -pl distribution/server-dist -am
 
       - name: Store Keycloak artifacts
         id: store-keycloak
