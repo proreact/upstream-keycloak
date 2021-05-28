@@ -1,6 +1,10 @@
 name: Keycloak CI
 
-on: [push, pull_request]
+on:
+  push:
+    branches-ignore:
+      - KEYCLOAK-11468
+  pull_request: ~
 
 env:
   # workaround for Maven >= 3.8.1 (see KEYCLOAK-17812)
