@@ -35,7 +35,7 @@ jobs:
 
       - name: Build Keycloak
         run: |
-           mvn clean install -e -DskipTests -Pquarkus,distribution -pl distribution/server-dist -am
+           mvn clean install  -nsu -B -e -DskipTests -Pquarkus,distribution
 
       - name: Store Keycloak artifacts
         id: store-keycloak
@@ -44,7 +44,7 @@ jobs:
           name: keycloak-artifacts-.zip
           retention-days: 2
           path: |
-            distribution/server-dist/target/keycloak-*.tar.gz
+            ~/.m2/repository/org/keycloak/**/keycloak-*.tar.gz
 
       - name: Remove keycloak artifacts before caching
         if: steps.cache.outputs.cache-hit != 'true'
