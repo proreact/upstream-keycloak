@@ -44,7 +44,7 @@ jobs:
           name: keycloak-artifacts-.zip
           retention-days: 2
           path: |
-            distribution/server-dist/target/
+            distribution/server-dist/target/keycloak-*.tar.gz
 
       - name: Remove keycloak artifacts before caching
         if: steps.cache.outputs.cache-hit != 'true'
